@@ -13,8 +13,9 @@ Contributions are greatly appreciated. Please fork this repository and open a
 pull request to add snippets, make grammar tweaks, or something Fun.
 
 * Todo List
- * Make VSCode can Snippets, Lint, Play, Build Game from VSCode Editor.
- * Support Renpy 6.99.14.x or higher and Renpy 7 For future.
+  * Make VSCode can Snippets, Lint, Play, Build Game from VSCode Editor.
+  * Support Renpy 6.99.14.x or higher and Renpy 7 For future.
+  * If Detect SteamAPI on your Renpy SDK. SteamAPI Snippets will work.
 
 >Ren'Py is a Visual Novel development tool, available from [www.renpy.org](http://www.renpy.org/) by [Tom Rothamel (aka renpytom)](https://github.com/renpytom)
 

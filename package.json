@@ -1,9 +1,9 @@
 {
     "name": "renpy-language-vscode",
-    "displayName": "Ren'Py Language Support",
-    "description": "Ren'Py language support for Visual Studio Code",
-    "version": "0.3.0",
-    "publisher": "williamd1k0",
+    "displayName": "Ren'Py Language Support Plus",
+    "description": "Ren'Py language support Plus for Visual Studio Code",
+    "version": "0.0.1",
+    "publisher": "karorogunso",
     "icon": "img/renpyicon.png",
     "galleryBanner": {
 		"color": "#ff7f7f",
@@ -14,16 +14,37 @@
         "vscode": "^1.0.0"
     },
     "bugs": {
-		"url": "https://github.com/williamd1k0/renpy-language-vscode/issues",
-		"email": "tumeowilliam@gmail.com"
+		"url": "https://github.com/karorogunso/renpy-language-vscode-plus/issues",
+		"email": "karorogunsou@gmail.com"
 	},
     "repository": {
 		"type": "git",
-		"url": "https://github.com/williamd1k0/renpy-language-vscode.git"
+		"url": "https://github.com/karorogunso/renpy-language-vscode-plus.git"
 	},
     "categories": [
-        "Languages"
+        "Languages",
+        "Snippets",
+        "Other"
     ],
+    "activationEvents": [
+        "onCommand:renpylangplus.doLint",
+        "onCommand:renpylangplus.doPlay",
+        "onCommand:renpylangplus.doDelPersistent",
+        "onCommand:renpylangplus.doPackage",
+        "onCommand:renpylangplus.doRecompile"
+    ],
+    "main": "./extension",
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "eslint": "^4.11.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    },
     "contributes": {
         "languages": [{
             "id": "renpy",
@@ -31,6 +52,28 @@
             "extensions": [".rpy",".rpym"],
             "configuration": "./renpy.configuration.json"
         }],
+            "commands": [
+                {
+                    "command": "renpylangplus.doLint",
+                    "title": "Renpy: Check Script Project"
+                },
+                {
+                    "command": "renpylangplus.doPlay",
+                    "title": "Renpy: Launch Project"
+                },
+                {
+                    "command": "renpylangplus.doDelPersistent",
+                    "title": "Renpy: Delete Persistent Save"
+                },
+                {
+                    "command": "renpylangplus.doPackage",
+                    "title": "Renpy: Build Distributions"
+                },
+                {
+                    "command": "renpylangplus.doRecompile",
+                    "title": "Renpy: Recompile Project"
+                }
+            ],
         "grammars": [{
             "language": "renpy",
             "scopeName": "source.renpy",

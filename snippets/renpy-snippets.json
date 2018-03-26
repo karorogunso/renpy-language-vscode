@@ -1,243 +1,330 @@
 {
-    "Label": {
-      "prefix": "label",
-      "body": "label ${1:label_name}:\n\t${2:}",
-      "description": "Label: Create a new label \n- Label statements allow the given name to be assigned to a program point. They exist solely to be called or jumped to, whether by script code or the Ren'Py config.\nUse the snippet `dochelp` or `helplabel` to see doc info."
-    },
-    "Jump": {
-      "prefix": "jump",
-      "body": "jump ${1:label_name}",
-      "description": "Jump: Jump to a label \n- The jump statement is used to transfer control to the given label.\nUse the snippet `dochelp` or `helpjump` to see doc info."
-    },
-    "Call": {
-      "prefix": "call",
-      "body": "call ${1:label_name}"
-    },
-    "Pause": {
-      "prefix": "pause",
-      "body": "with Pause($1)\n$2"
-    },
-    "One Line Python": {
-      "prefix": "p1",
-      "body": "$ ${1:#python statements}"
-    },
-    "Python in Block": {
-      "prefix": "py",
-      "body": "python:\n\t${1:}"
-    },
-    "Init Block": {
-      "prefix": "init",
-      "body": "init ${1:#priority number}:\n\t${2:}"
-    },
-    "Init with Python Block": {
-      "prefix": "inipy",
-      "body": "init ${1:#priority number} python:\n\t${2:}"
-    },
-    "Create a Character": {
-      "prefix": "char",
-      "body": "define ${1:character_name} = Character(\"${2:displayable name}\")"
-    },
-    "Create a Character (NVL)": {
-      "prefix": "charnvl",
-      "body": "define ${1:character_name} = Character(None, kind=nvl)\n${2:}"
-    },
-    "PreDefined Transitions": {
-      "prefix": "transitions",
-      "body": "${1:fade, dissolve, pixellate, move,\nmoveinright (Also: moveinleft, moveintop, moveinbottom),\nmoveoutright (Also: moveoutleft, moveouttop, moveoutbottom),\nease (Also: easeinright, easeinleft, easeintop, easeinbottom, easeoutright, easeoutleft, easeouttop, easeoutbottom),\nzoomin, zoomout, zoominout, vpunch, hpunch, blinds, squares,\nwipeleft (Also: wiperight, wipeup, wipedown),\nslideleft (Also:  slideright, slideup, slidedown),\nslideawayleft (Also: slideawayright, slideawayup, slideawaydown),\nirisin, irisout.}"
-    },
-    "[i] Create MultiPersistent (Only PC)": {
-      "prefix": "multi",
-      "body": "${1:persistent_name} = MultiPersistent(\"${2:persistent_filename}\")"
-    },
-    "[$] Variable(Create/Modify)": {
-      "prefix": "$",
-      "body": "$ ${1:variable_name} = ${2:# variable value}"
-    },
-    "[$] Renpy Pause": {
-      "prefix": "rpause",
-      "body": "$ renpy.pause($1)\n$2"
-    },
-    "[$] Movie Cutscene (All Platforms)": {
-      "prefix": "cutscene",
-      "body": "$ renpy.movie_cutscene('${1:filename.extension}')"
-    },
-    "[$] Save Persistent (All Platforms)": {
-      "prefix": "persist",
-      "body": "$ persistent.${1:value_name} = ${2:# variable value}"
-    },
-    "[$] Save MultiPersistent (Only PC)": {
-      "prefix": "multisave",
-      "body": "$ ${1:persistent_name}.save()"
-    },
-    "[T] Fade": {
-      "prefix": "wFade",
-      "body": "with fade"
-    },
-    "[T] Dissolve": {
-      "prefix": "wDissolve",
-      "body": "with dissolve"
-    },
-    "[T] Pixellate": {
-      "prefix": "wPixel",
-      "body": "with pixellate"
-    },
-    "[T] Move": {
-      "prefix": "wMove",
-      "body": "with move"
-    },
-    "[T] Move in Right": {
-      "prefix": "wMoveInRight",
-      "body": "with moveinright"
-    },
-    "[T] Move in Left": {
-      "prefix": "wMoveInLeft",
-      "body": "with moveinleft"
-    },
-    "[T] Move in Top": {
-      "prefix": "wMoveInTop",
-      "body": "with moveintop"
-    },
-    "[T] Move in Bottom": {
-      "prefix": "wMoveInBottom",
-      "body": "with moveinbottom"
-    },
-    "If (Conditional Statement)": {
-      "prefix": "if",
-      "body": "if ${1:condition}:\n\t${2:#block of code to run}"
-    },
-    "Else If (Conditional Statement)": {
-      "prefix": "elif",
-      "body": "elif ${1:condition}:\n\t${2:#block of code to run}"
-    },
-    "Else (Conditional Statement)": {
-      "prefix": "else",
-      "body": "else:\n\t${1:#block of code to run}"
-    },
-    "While (Loop)": {
-      "prefix": "while",
-      "body": "while ${1:condition}:\n\t${2:#block of code to run}"
-    },
-    "Choice Menu": {
-      "prefix": "menu",
-      "body": "menu ${1:optionalName}:\n\t\"${2:Say Statement}\"\n\t\"${3:Choice 1}\":\n\t\t#block of code to run\n\t\"${4:Choice 2}\":\n\t\t#block of code to run\n\t${5:}"
-    },
-    "Menu Choice": {
-      "prefix": "choice",
-      "body": "\"${1:Choice N}\":\n\t${2:#block of code to run}\n\t$3"
-    },
-    "Ren'Py Docs": {
-      "prefix": "dochelp",
-      "body": "## Visit the site for documentation or help of Ren'Py engine. ##\n## Documentation:\n\t\"${1:http://www.renpy.org/doc/html/}\"\n## Wiki-Old Documentation:\n\t\"${2:http://www.renpy.org/wiki/renpy/Wiki_Home_Page}\"\n## Forum:\n\t\"${3:http://lemmasoft.renai.us/forums/viewforum.php?f=42}\"\n## Package Documentation:\n\t\"${4:https://github.com/williamd1k0/renpy-language-vscode#getting-started}\"\n\n## Warning: All snippets that start with [Py] are for Python commands and [$] are for One Line Python."
-    },
-    // Help Snippets
-    "[?] Help Label": {
-      "prefix": "helplabel",
-      "body": "# See doc: ${1:https://www.renpy.org/doc/html/label.html}",
-      "description": "Show Label statement info"
-    },
-    "[?] Help Label": {
-      "prefix": "helpjump",
-      "body": "# See doc: ${1:https://www.renpy.org/doc/html/label.html#jump-statement}",
-      "description": "Show Jump statement info"
-    },
-    "[Py] Assert Equal": {
-      "prefix": ",ase",
-      "body": "self.assertEqual(${1:expected}, ${2:actual}${3:, '${4:message}'})$0"
-    },
-    "[Py] Assert Not Equal": {
-      "prefix": ",asne",
-      "body": "self.assertNotEqual(${1:expected}, ${2:actual}${3:, '${4:message}'})$0"
-    },
-    "[Py] Assert Raises": {
-      "prefix": ",asr",
-      "body": "self.assertRaises(${1:exception}, ${2:callable})$0"
-    },
-    "[Py] Assert True": {
-      "prefix": ",ast",
-      "body": "self.assertTrue(${1:actual}${2:, '${3:message}'})$0"
-    },
-    "[Py] Assert False": {
-      "prefix": ",asf",
-      "body": "self.assertFalse(${1:actual}${2:, '${3:message}'})$0"
-    },
-    "[Py] Assert Is": {
-      "prefix": ",asi",
-      "body": "self.assertIs(${1:expected}, ${2:actual}${3:, '${4:message}'})$0"
-    },
-    "[Py] Assert Is Not": {
-      "prefix": ",asint",
-      "body": "self.assertIsNot(${1:expected}, ${2:actual}${3:, '${4:message}'})$0"
-    },
-    "[Py] Assert Is None": {
-      "prefix": ",asino",
-      "body": "self.assertIsNone(${1:actual}${2:, '${3:message}'})$0"
-    },
-    "[Py] Assert Is Not None": {
-      "prefix": ",asinno",
-      "body": "self.assertIsNotNone(${1:actual}${2:, '${3:message}'})$0"
-    },
-    "[Py] Assert In": {
-      "prefix": ",asin",
-      "body": "self.assertIn(${1:needle}, ${2:haystack}${3:, '${4:message}'})$0"
-    },
-    "[Py] Assert Not In": {
-      "prefix": ",asni",
-      "body": "self.assertNotIn(${1:needle}, ${2:haystack}${3:, '${4:message}'})$0"
-    },
-    "[Py] Assert": {
-      "prefix": ",as",
-      "body": "self.assert_(${1:boolean expression}${2:, '${3:message}'})$0"
-    },
-    "[Py] Fail (a test)": {
-      "prefix": "fail",
-      "body": "self.fail('${1:message}')$0"
-    },
-    "[Py] New Class": {
-      "prefix": "class",
-      "body": "class ${1:ClassName}(${2:object}):\n\t\"\"\"${3:docstring for $1}\"\"\"\n\tdef __init__(self, ${4:arg}):\n\t\t${5:super($1, self).__init__()}\n\t\tself.arg = arg\n\t\t$0"
-    },
-    "[Py] New Method": {
-      "prefix": "defs",
-      "body": "def ${1:mname}(self, ${2:arg}):\n\t${3:pass}"
-    },
-    "[Py] New Function": {
-      "prefix": "def",
-      "body": "def ${1:fname}(${2:arg}):\n\t${3:pass}"
-    },
-    "[Py] New Property": {
-      "prefix": "property",
-      "body": "def ${1:foo}():\n    doc = \"${2:The $1 property.}\"\n    def fget(self):\n        ${3:return self._$1}\n    def fset(self, value):\n        ${4:self._$1 = value}\n    def fdel(self):\n        ${5:del self._$1}\n    return locals()\n$1 = property(**$1())$0"
-    },
-    "[Py] For (Loop)": {
-      "prefix": "for",
-      "body": "for ${1:value} in ${2:variable}:\n\t${3:pass}"
-    },
-    "[Py] Try/Except": {
-      "prefix": "try",
-      "body": "try:\n\t${1:pass}\nexcept ${2:Exception} as ${3:e}:\n\t${4:raise $3}"
-    },
-    "[Py] List Comprehension": {
-      "prefix": "lc",
-      "body": "[${1:value} for ${2:value} in ${3:variable}]"
-    },
-    "[Py] List Comprehension If Else": {
-      "prefix": "lcie",
-      "body": "[${1:value} if ${2:condition} else ${3:condition} for ${4:value} in ${5:variable}]"
-    },
-    "[Py] Dictionary Comprehension": {
-      "prefix": "dc",
-      "body": "{${1:key}: ${2:value} for ${3:key}, ${4:value} in ${5:variable}}"
-    },
-    "[Py] PDB set trace": {
-      "prefix": "pdb",
-      "body": "import pdb; pdb.set_trace()\n"
-    },
-    "[Py] iPDB set trace": {
-      "prefix": "ipdb",
-      "body": "import ipdb; ipdb.set_trace()\n"
-    },
-    "[Py] __magic__": {
-      "prefix": "__",
-      "body": "__${1:init}__"
-    }
+  "Label": {
+    "prefix": "label",
+    "body": "label ${1:label_name}:\n\t${2:}",
+    "description": "Label: Create a new label \n- Label statements allow the given name to be assigned to a program point. They exist solely to be called or jumped to, whether by script code or the Ren'Py config.\n"
+  },
+  "Jump": {
+    "prefix": "jump",
+    "body": "jump ${1:label_name}",
+    "description": "Jump: Jump to a label \n- The jump statement is used to transfer control to the given label.\nUse the snippet `dochelp` or `helpjump` to see doc info."
+  },
+  "Call": {
+    "prefix": "call",
+    "body": "call ${1:label_name}"
+  },
+  "Pause": {
+    "prefix": "pause",
+    "body": "with Pause($1)\n$2"
+  },
+  "One Line Python": {
+    "prefix": "p1",
+    "body": "$ ${1:#python statements}"
+  },
+  "Python in Block": {
+    "prefix": "py",
+    "body": "python:\n\t${1:}"
+  },
+  "Init Block": {
+    "prefix": "init",
+    "body": "init ${1:#priority number}:\n\t${2:}"
+  },
+  "Init with Python Block": {
+    "prefix": "inipy",
+    "body": "init ${1:#priority number} python:\n\t${2:}"
+  },
+  "Create a Character": {
+    "prefix": "char",
+    "body": "define ${1:character_name} = Character(\"${2:displayable name}\")"
+  },
+  "Create a Character (NVL)": {
+    "prefix": "charnvl",
+    "body": "define ${1:character_name} = Character(None, kind=nvl)\n${2:}"
+  },
+  "PreDefined Transitions": {
+    "prefix": "transitions",
+    "body": "${1:fade, dissolve, pixellate, move,\nmoveinright (Also: moveinleft, moveintop, moveinbottom),\nmoveoutright (Also: moveoutleft, moveouttop, moveoutbottom),\nease (Also: easeinright, easeinleft, easeintop, easeinbottom, easeoutright, easeoutleft, easeouttop, easeoutbottom),\nzoomin, zoomout, zoominout, vpunch, hpunch, blinds, squares,\nwipeleft (Also: wiperight, wipeup, wipedown),\nslideleft (Also:  slideright, slideup, slidedown),\nslideawayleft (Also: slideawayright, slideawayup, slideawaydown),\nirisin, irisout.}"
+  },
+  "[i] Create MultiPersistent (Only PC)": {
+    "prefix": "multi",
+    "body": "${1:persistent_name} = MultiPersistent(\"${2:persistent_filename}\")"
+  },
+  "[$] Variable(Create/Modify)": {
+    "prefix": "$",
+    "body": "$ ${1:variable_name} = ${2:# variable value}"
+  },
+  "[$] Renpy Pause": {
+    "prefix": "rpause",
+    "body": "$ renpy.pause($1)\n$2"
+  },
+  "[$] Movie Cutscene (All Platforms)": {
+    "prefix": "cutscene",
+    "body": "$ renpy.movie_cutscene('${1:filename.extension}')"
+  },
+  "[$] Save Persistent (All Platforms)": {
+    "prefix": "persist",
+    "body": "$ persistent.${1:value_name} = ${2:# variable value}"
+  },
+  "[$] Save MultiPersistent (Only PC)": {
+    "prefix": "multisave",
+    "body": "$ ${1:persistent_name}.save()"
+  },
+  "[T] Fade": {
+    "prefix": "wFade",
+    "body": "with fade"
+  },
+  "[T] Dissolve": {
+    "prefix": "wDissolve",
+    "body": "with dissolve"
+  },
+  "[T] Pixellate": {
+    "prefix": "wPixel",
+    "body": "with pixellate"
+  },
+  "[T] Move": {
+    "prefix": "wMove",
+    "body": "with move"
+  },
+  "[T] Move in Right": {
+    "prefix": "wMoveInRight",
+    "body": "with moveinright"
+  },
+  "[T] Move in Left": {
+    "prefix": "wMoveInLeft",
+    "body": "with moveinleft"
+  },
+  "[T] Move in Top": {
+    "prefix": "wMoveInTop",
+    "body": "with moveintop"
+  },
+  "[T] Move in Bottom": {
+    "prefix": "wMoveInBottom",
+    "body": "with moveinbottom"
+  },
+  "If (Conditional Statement)": {
+    "prefix": "if",
+    "body": "if ${1:condition}:\n\t${2:#block of code to run}"
+  },
+  "Else If (Conditional Statement)": {
+    "prefix": "elif",
+    "body": "elif ${1:condition}:\n\t${2:#block of code to run}"
+  },
+  "Else (Conditional Statement)": {
+    "prefix": "else",
+    "body": "else:\n\t${1:#block of code to run}"
+  },
+  "While (Loop)": {
+    "prefix": "while",
+    "body": "while ${1:condition}:\n\t${2:#block of code to run}"
+  },
+  "Choice Menu": {
+    "prefix": "menu",
+    "body": "menu ${1:optionalName}:\n\t\"${2:Say Statement}\"\n\t\"${3:Choice 1}\":\n\t\t#block of code to run\n\t\"${4:Choice 2}\":\n\t\t#block of code to run\n\t${5:}"
+  },
+  "Menu Choice": {
+    "prefix": "choice",
+    "body": "\"${1:Choice N}\":\n\t${2:#block of code to run}\n\t$3"
+  },
+  "Ren'Py Docs": {
+    "prefix": "dochelp",
+    "body": "## Visit the site for documentation or help of Ren'Py engine. ##\n## Documentation:\n\t\"${1:http://www.renpy.org/doc/html/}\"\n## Wiki-Old Documentation:\n\t\"${2:http://www.renpy.org/wiki/renpy/Wiki_Home_Page}\"\n## Forum:\n\t\"${3:http://lemmasoft.renai.us/forums/viewforum.php?f=42}\"\n## Package Documentation:\n\t\"${4:https://github.com/williamd1k0/renpy-language-vscode#getting-started}\"\n\n## Warning: All snippets that start with [Py] are for Python commands and [$] are for One Line Python."
+  },
+  "[?] Help Label": {
+    "prefix": "helplabel",
+    "body": "# See doc: ${1:https://www.renpy.org/doc/html/label.html}",
+    "description": "Show Label statement info"
+  },
+  "[?] Help Jump": {
+    "prefix": "helpjump",
+    "body": "# See doc: ${1:https://www.renpy.org/doc/html/label.html#jump-statement}",
+    "description": "Show Jump statement info"
+  },
+  "[Py] Assert Equal": {
+    "prefix": ",ase",
+    "body": "self.assertEqual(${1:expected}, ${2:actual}${3:, '${4:message}'})$0"
+  },
+  "[Py] Assert Not Equal": {
+    "prefix": ",asne",
+    "body": "self.assertNotEqual(${1:expected}, ${2:actual}${3:, '${4:message}'})$0"
+  },
+  "[Py] Assert Raises": {
+    "prefix": ",asr",
+    "body": "self.assertRaises(${1:exception}, ${2:callable})$0"
+  },
+  "[Py] Assert True": {
+    "prefix": ",ast",
+    "body": "self.assertTrue(${1:actual}${2:, '${3:message}'})$0"
+  },
+  "[Py] Assert False": {
+    "prefix": ",asf",
+    "body": "self.assertFalse(${1:actual}${2:, '${3:message}'})$0"
+  },
+  "[Py] Assert Is": {
+    "prefix": ",asi",
+    "body": "self.assertIs(${1:expected}, ${2:actual}${3:, '${4:message}'})$0"
+  },
+  "[Py] Assert Is Not": {
+    "prefix": ",asint",
+    "body": "self.assertIsNot(${1:expected}, ${2:actual}${3:, '${4:message}'})$0"
+  },
+  "[Py] Assert Is None": {
+    "prefix": ",asino",
+    "body": "self.assertIsNone(${1:actual}${2:, '${3:message}'})$0"
+  },
+  "[Py] Assert Is Not None": {
+    "prefix": ",asinno",
+    "body": "self.assertIsNotNone(${1:actual}${2:, '${3:message}'})$0"
+  },
+  "[Py] Assert In": {
+    "prefix": ",asin",
+    "body": "self.assertIn(${1:needle}, ${2:haystack}${3:, '${4:message}'})$0"
+  },
+  "[Py] Assert Not In": {
+    "prefix": ",asni",
+    "body": "self.assertNotIn(${1:needle}, ${2:haystack}${3:, '${4:message}'})$0"
+  },
+  "[Py] Assert": {
+    "prefix": ",as",
+    "body": "self.assert_(${1:boolean expression}${2:, '${3:message}'})$0"
+  },
+  "[Py] Fail (a test)": {
+    "prefix": "fail",
+    "body": "self.fail('${1:message}')$0"
+  },
+  "[Py] New Class": {
+    "prefix": "class",
+    "body": "class ${1:ClassName}(${2:object}):\n\t\"\"\"${3:docstring for $1}\"\"\"\n\tdef __init__(self, ${4:arg}):\n\t\t${5:super($1, self).__init__()}\n\t\tself.arg = arg\n\t\t$0"
+  },
+  "[Py] New Method": {
+    "prefix": "defs",
+    "body": "def ${1:mname}(self, ${2:arg}):\n\t${3:pass}"
+  },
+  "[Py] New Function": {
+    "prefix": "def",
+    "body": "def ${1:fname}(${2:arg}):\n\t${3:pass}"
+  },
+  "[Py] New Property": {
+    "prefix": "property",
+    "body": "def ${1:foo}():\n    doc = \"${2:The $1 property.}\"\n    def fget(self):\n        ${3:return self._$1}\n    def fset(self, value):\n        ${4:self._$1 = value}\n    def fdel(self):\n        ${5:del self._$1}\n    return locals()\n$1 = property(**$1())$0"
+  },
+  "[Py] For (Loop)": {
+    "prefix": "for",
+    "body": "for ${1:value} in ${2:variable}:\n\t${3:pass}"
+  },
+  "[Py] Try/Except": {
+    "prefix": "try",
+    "body": "try:\n\t${1:pass}\nexcept ${2:Exception} as ${3:e}:\n\t${4:raise $3}"
+  },
+  "[Py] List Comprehension": {
+    "prefix": "lc",
+    "body": "[${1:value} for ${2:value} in ${3:variable}]"
+  },
+  "[Py] List Comprehension If Else": {
+    "prefix": "lcie",
+    "body": "[${1:value} if ${2:condition} else ${3:condition} for ${4:value} in ${5:variable}]"
+  },
+  "[Py] Dictionary Comprehension": {
+    "prefix": "dc",
+    "body": "{${1:key}: ${2:value} for ${3:key}, ${4:value} in ${5:variable}}"
+  },
+  "[Py] PDB set trace": {
+    "prefix": "pdb",
+    "body": "import pdb; pdb.set_trace()\n"
+  },
+  "[Py] iPDB set trace": {
+    "prefix": "ipdb",
+    "body": "import ipdb; ipdb.set_trace()\n"
+  },
+  "[Py] __magic__": {
+    "prefix": "__",
+    "body": "__${1:init}__"
+  },
+  "Anchor Tag":{
+    "prefix": "a",
+    "body": "{a=${1:url}}${2:text}{/a}"
+  },
+  "Alpha Tag":{
+    "prefix": "al",
+    "body": "{alpha=${1:alpha value}}${2:text}{/alpha}"
+  },
+  "Bold Tag":{
+    "prefix": "b",
+    "body": "{b}${1:text}{/b}"
+  },
+  "Color Tag":{
+    "prefix": "c",
+    "body": "{color=${1:color code}}${2:text}{/color}"
+  },
+  "Characters per second Tag":{
+    "prefix": "cp",
+    "body": "{cps=${1:characters per second}}${2:text}{/cps}"
+  },
+  "Font Tag":{
+    "prefix": "f",
+    "body": "{font=${1:font file}}${2:text}{/font}"
+  },
+  "Italics Tag":{
+    "prefix": "i",
+    "body": "{i}${1:text}{/i}"
+  },
+  "Kerning Tag":{
+    "prefix": "k",
+    "body": "{k=${1:adjust value}}${2:text}{/k}"
+  },
+  "Image Tag":{
+    "prefix": "im",
+    "body": "{image=${1:image file}}"
+  },
+  "Strikethrough Tag":{
+    "prefix": "s",
+    "body": "{s}${1:text}{/s}"
+  },
+  "Ruby Text Top Tag":{
+    "prefix": "rt",
+    "body": "{rt}${1:text}{/rt}"
+  },
+  "Ruby Text Bottom Tag":{
+    "prefix": "rb",
+    "body": "{rb}${1:text}{/rb}"
+  },
+  "Size Tag":{
+    "prefix": "si",
+    "body": "{size=${1:size value}}${2:text}{/size}"
+  },
+  "Space Tag":{
+    "prefix": "sp",
+    "body": "{space=${1:space size}}"
+  },
+  "Underline Tag":{
+    "prefix": "u",
+    "body": "{u}${1:text}{/u}"
+  },
+  "Vertical space Tag":{
+    "prefix": "v",
+    "body": "{vspace=${1:space size}}"
+  },
+  "Fast Tag":{
+    "prefix": "fa",
+    "body": "{fast}"
+  },
+  "No-wait Tag":{
+    "prefix": "n",
+    "body": "{nw}"
+  },
+  "Paragraph Tag":{
+    "prefix": "p",
+    "body": "{p}"
+  },
+  "Wait Paragraph Tag":{
+    "prefix": "pp",
+    "body": "{p=${1:wait time}}"
+  },
+  "Wait Tag":{
+    "prefix": "w",
+    "body": "{w}"
+  },
+  "Wait time Tag":{
+    "prefix": "ww",
+    "body": "{w=${1:wait time}}"
+  }
 }
