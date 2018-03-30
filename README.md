@@ -30,7 +30,7 @@ pull request to add snippets, make grammar tweaks, or stuff.
 
 When using Ren'Py 6.99.14.1 or higher, go to preferences and select System Editor and Point to VSCode Editor.
 
-with [VSCode](https://code.visualstudio.com/) already installed, open the Settings tab: `View`>`Extensions` (or with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kdb> ) 
+with [VSCode](https://code.visualstudio.com/) already installed, open the Settings tab: `View`>`Extensions` (or with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>) 
 
 Download renpy-language-vscode-%version%.vsix from [Here](https://github.com/karorogunso/renpy-language-vscode-plus/releases)
 
