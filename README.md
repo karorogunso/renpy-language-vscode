@@ -8,6 +8,7 @@ But Still Work in Process A lots.
 Because I love to use VScode and Thanks to [Williamd1k0](https://github.com/williamd1k0) for make a first his alpha version.
 
 Originally converted from the [Williamd1k0](https://github.com/williamd1k0).
+Base on [Tom Rothamel (aka renpytom)](https://github.com/renpytom)
 
 Contributions are greatly appreciated. Please fork this repository and open a
 pull request to add snippets, make grammar tweaks, or stuff.
