@@ -11,27 +11,33 @@
   },
   "Call": {
     "prefix": "call",
-    "body": "call ${1:label_name}"
+    "body": "call ${1:label_name}",
+    "description": "Call a Label"
   },
   "Pause": {
     "prefix": "pause",
-    "body": "with Pause($1)\n$2"
+    "body": "with Pause($1)\n$2",
+    "description": "Wait a few seconds before showing the next screen"
   },
   "One Line Python": {
     "prefix": "p1",
-    "body": "$ ${1:#python statements}"
+    "body": "$ ${1:#python statements}",
+    "description": "Execute a single line of Python"
   },
   "Python in Block": {
     "prefix": "py",
-    "body": "python:\n\t${1:}"
+    "body": "python:\n\t${1:}",
+    "description": "The python statement takes a block of python code"
   },
   "Init Block": {
     "prefix": "init",
-    "body": "init ${1:#priority number}:\n\t${2:}"
+    "body": "init ${1:#priority number}:\n\t${2:}",
+    "description": "Run code at initialization time"
   },
   "Init with Python Block": {
     "prefix": "inipy",
-    "body": "init ${1:#priority number} python:\n\t${2:}"
+    "body": "init ${1:#priority number} python:\n\t${2:}",
+    "description": "Initialization Python Block"
   },
   "Create a Character": {
     "prefix": "char",

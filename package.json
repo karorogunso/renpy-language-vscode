@@ -1,8 +1,8 @@
 {
-    "name": "renpy-language-vscode",
+    "name": "renpy-language-vscode-plus",
     "displayName": "Ren'Py Language Support Plus",
     "description": "Ren'Py language support Plus for Visual Studio Code",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "karorogunso",
     "icon": "img/renpyicon.png",
     "galleryBanner": {

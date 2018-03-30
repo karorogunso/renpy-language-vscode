@@ -31,5 +31,5 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
-renpy-language-vscode-0.0.1.vsix
+[Bb]uild_ext/
 package-lock.json
