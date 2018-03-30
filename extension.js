@@ -17,8 +17,7 @@ function activate(context) {
         // The code you place here will be executed every time your command is executed
 
         // Display a message box to the user
-        vscode.window.showInformationMessage('Hi... I just going to Lint Your Game First!!');
-        vscode.window.executeCommand('python');
+        //vscode.window.showInformationMessage('Hi... I just going to Lint Your Game First!!');
     });
 
     context.subscriptions.push(disposable);
