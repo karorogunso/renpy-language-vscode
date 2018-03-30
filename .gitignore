@@ -31,3 +31,5 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
+renpy-language-vscode-0.0.1.vsix
+package-lock.json
