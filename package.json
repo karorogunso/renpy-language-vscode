@@ -13,27 +13,68 @@
     "engines": {
         "vscode": "^1.0.0"
     },
+
     "bugs": {
         "url": "https://github.com/karorogunso/renpy-language-vscode-plus/issues",
         "email": "karorogunsou@gmail.com"
+    },
+
+    "configuration": {
+        "type": "object",
+        "title": "Renpy Configuration",
+        "properties":{
+            "renpy.defaultInit": {
+                "type": "string",
+                "default": "",
+                "description": "Init Renpy with empty string"
+            },
+            "renpy.defaultSDKPath": {
+                "type": "string",
+                "default": "",
+                "description": "RenpySDK Path"
+            },
+            "renpy.showExplorer": {
+                "type": "boolean",
+                "default": true,
+                "description": "Show or Hide explorer."
+            },
+            "renpy.buildCommand": {
+                "type": "string",
+                "default": "",
+                "description": "RenpySDK Build Command"
+            },
+            "renpy.renpyGameDIR": {
+                "type": "string",
+                "default": "",
+                "description": "Your Game Path"
+            }
     },
     "repository": {
         "type": "git",
         "url": "https://github.com/karorogunso/renpy-language-vscode-plus.git"
     },
-    "categories": [
-        "Languages",
-        "Snippets",
-        "Other"
-    ],
     "activationEvents": [
+        "onLanguage:renpy",
         "onCommand:renpylangplus.doLint",
         "onCommand:renpylangplus.doPlay",
         "onCommand:renpylangplus.doDelPersistent",
         "onCommand:renpylangplus.doPackage",
-        "onCommand:renpylangplus.doRecompile"
+        "onCommand:renpylangplus.doRecompile",
+        "onView:renpyExplorer"
     ],
-    "main": "./extension",
+    "languages":[
+        {
+            "id": "renpyfile",
+            "aliases":[
+                "Renpyfile"
+            ],
+            "filenamePatterns":[
+                "*.rpy",
+                "Renpyfile"
+            ]
+        }
+    ],
+    "main": "./out/renpyExtension",
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "node ./node_modules/vscode/bin/test"
@@ -46,6 +87,15 @@
         "@types/mocha": "^2.2.42"
     },
     "contributes": {
+            "viewsContainers":{
+                "activitybar":[
+                    {
+                        "id":"package-explorer",
+                        "title":"package Explorer",
+                        "icon": "img/renpyicon.png"
+                    }
+                ]
+            },
         "languages": [
             {
                 "id": "renpy",
@@ -63,23 +113,34 @@
         "commands": [
             {
                 "command": "renpylangplus.doLint",
-                "title": "[Not Work yet] Renpy: Check Script Project"
+                "title": "[Not Work yet] Renpy: Check Script Project",
+                "description": "Check Game with Renpy Lint",
+                "category": "Renpy"
+
             },
             {
                 "command": "renpylangplus.doPlay",
-                "title": "[Not Work yet] Renpy: Launch Project"
+                "title": "[Not Work yet] Renpy: Launch Project",
+                "description": "Start Game to Play or Test",
+                "category": "Renpy"
             },
             {
                 "command": "renpylangplus.doDelPersistent",
-                "title": "[Not Work yet] Renpy: Delete Persistent Save"
+                "title": "[Not Work yet] Renpy: Delete Persistent Save",
+                "description": "Delete Your Game Persistent Save to fresh test",
+                "category": "Renpy"
             },
             {
                 "command": "renpylangplus.doPackage",
-                "title": "[Not Work yet] Renpy: Build Distributions"
+                "title": "[Not Work yet] Renpy: Build Distributions",
+                "description": "Pack your game",
+                "category": "Renpy"
             },
             {
                 "command": "renpylangplus.doRecompile",
-                "title": "[Not Work yet] Renpy: Recompile Project"
+                "title": "[Not Work yet] Renpy: Recompile Project",
+                "description": "Recompile Game",
+                "category": "Renpy"
             }
         ],
         "grammars": [
@@ -97,6 +158,9 @@
         ]
     },
     "dependencies": {
-        "npm": "^5.8.0"
+        "npm": "^5.8.0",
+        "vscode-extension-telemetry": "^0.0.6",
+        "vscode-languageclient": "^4.2.1"
     }
+}
 }
